@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Book a Consultation | Liberty Technology Services</title>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="../CSS/Global Styles.css" />
+   </head>
+
+   <body class="bg-slate-50 text-slate-900">
+      <!-- NAV -->
+      <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+               <!-- Logo -->
+               <a href="index.html" class="flex items-center">
+                  <img src="../images/LTS_logo_transparent.png" alt="Liberty Technology Services Logo" class="h-20 w-auto" />
+               </a>
+
+               <!-- Nav Links -->
+               <div class="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest">
+                  <a href="index.html" class="text-slate-600 hover:text-navy transition">Home</a>
+                  <a href="about.html" class="text-slate-600 hover:text-navy transition">About</a>
+                  <a href="services.html" class="text-slate-600 hover:text-navy transition">Services</a>
+                  <a href="contact.html" class="text-slate-600 hover:text-navy transition">Contact</a>
+
+                  <!-- CTA -->
+                  <a href="consultation.html" class="px-6 py-3 bg-navy text-white rounded-lg hover:bg-blue-900 transition shadow-md text-[10px]"> Book a Consultation </a>
+               </div>
+            </div>
+         </div>
+      </nav>
+
+      <!-- PAGE CONTENT -->
+      <main class="page-fade pt-36 pb-24 px-4">
+         <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+               <h1 class="text-4xl md:text-5xl font-black text-navy mb-4">Schedule a Private Consultation</h1>
+               <p class="text-slate-600 text-lg max-w-2xl mx-auto">Tell us about your home and your goals so we can design the right solution.</p>
+            </div>
+
+            <form action="#" method="post" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-10 space-y-8">
+               <section>
+                  <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">Contact Info</h2>
+                  <div class="grid md:grid-cols-2 gap-5">
+                     <div class="md:col-span-2">
+                        <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Name</label>
+                        <input id="name" name="name" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
+                     </div>
+                     <div>
+                        <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                        <input id="email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
+                     </div>
+                     <div>
+                        <label for="phone" class="block text-sm font-semibold text-slate-700 mb-2">Phone</label>
+                        <input id="phone" name="phone" type="tel" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
+                     </div>
+                  </div>
+               </section>
+
+               <section>
+                  <div class="grid md:grid-cols-3 gap-5">
+                     <div>
+                        <label for="project_type" class="block text-sm font-semibold text-slate-700 mb-2">Project Type</label>
+                        <select id="project_type" name="project_type" required class="w-full rounded-lg border border-slate-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500">
+                           <option value="">Select project type</option>
+                           <option value="networking">Networking</option>
+                           <option value="surveillance">Surveillance</option>
+                           <option value="automation">Automation</option>
+                           <option value="full_system_design">Full System Design</option>
+                        </select>
+                     </div>
+
+                     <div>
+                        <label for="property_type" class="block text-sm font-semibold text-slate-700 mb-2">Property Type</label>
+                        <select id="property_type" name="property_type" required class="w-full rounded-lg border border-slate-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500">
+                           <option value="">Select property type</option>
+                           <option value="single_family">Single Family</option>
+                           <option value="new_build">New Build</option>
+                           <option value="remodel">Remodel</option>
+                           <option value="office">Office</option>
+                        </select>
+                     </div>
+
+                     <div>
+                        <label for="timeline" class="block text-sm font-semibold text-slate-700 mb-2">Timeline</label>
+                        <select id="timeline" name="timeline" required class="w-full rounded-lg border border-slate-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500">
+                           <option value="">Select timeline</option>
+                           <option value="asap">ASAP</option>
+                           <option value="1_3_months">1-3 months</option>
+                           <option value="planning_stage">Planning stage</option>
+                        </select>
+                     </div>
+                  </div>
+               </section>
+
+               <section>
+                  <label for="project_details" class="block text-sm font-semibold text-slate-700 mb-2">Project details</label>
+                  <textarea id="project_details" name="project_details" rows="7" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" placeholder="Share any goals, pain points, or details about your project."></textarea>
+               </section>
+
+               <div class="pt-2">
+                  <button type="submit" class="inline-flex items-center justify-center px-8 py-3 bg-navy text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-blue-900 transition shadow-md">
+                     Request Consultation
+                  </button>
+               </div>
+            </form>
+         </div>
+      </main>
+   </body>
+</html>

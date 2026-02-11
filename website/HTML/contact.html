@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Contact | Liberty Technology Services</title>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="../CSS/Global Styles.css" />
+      <link rel="stylesheet" href="../CSS/Contact Styles.css" />
+   </head>
+
+   <body class="bg-slate-50 text-slate-900">
+      <!-- NAV (same as index) -->
+      <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+               <!-- Logo -->
+               <a href="index.html" class="flex items-center">
+                  <img src="../images/lts_shield_transparent.png" alt="Liberty Technology Services Logo" class="h-20 w-auto" />
+               </a>
+
+               <!-- Nav Links -->
+               <div class="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest">
+                  <a href="index.html" class="text-slate-600 hover:text-navy transition">Home</a>
+                  <a href="about.html" class="text-slate-600 hover:text-navy transition">About</a>
+                  <a href="services.html" class="text-slate-600 hover:text-navy transition">Services</a>
+                  <a href="contact.html" class="text-slate-600 hover:text-navy transition">Contact</a>
+
+                  <!-- CTA -->
+                  <a href="consultation.html" class="px-6 py-3 bg-navy text-white rounded-lg hover:bg-blue-900 transition shadow-md text-[10px]"> Book a Consultation </a>
+               </div>
+            </div>
+         </div>
+      </nav>
+
+      <main class="page-fade pt-36 pb-24">
+         <section class="px-4">
+            <div class="max-w-5xl mx-auto">
+               <div class="text-center mb-12">
+                  <h1 class="text-4xl md:text-5xl font-black text-navy mb-4">Let's Start a Conversation.</h1>
+                  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Have a question or need more information? Send us a message and we'll get back to you promptly.</p>
+               </div>
+
+               <div class="grid md:grid-cols-3 gap-8 items-start">
+                  <div class="md:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                     <form action="#" method="post" class="space-y-5">
+                        <div>
+                           <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Name</label>
+                           <input id="name" name="name" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
+                        </div>
+
+                        <div>
+                           <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                           <input id="email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
+                        </div>
+
+                        <div>
+                           <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                           <textarea
+                              id="message"
+                              name="message"
+                              rows="6"
+                              required
+                              class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500"
+                           ></textarea>
+                        </div>
+
+                        <button type="submit" class="inline-flex items-center justify-center px-8 py-3 bg-navy text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-blue-900 transition shadow-md">
+                           Send Message
+                        </button>
+                     </form>
+                  </div>
+
+                  <aside class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                     <h2 class="text-lg font-black text-navy mb-4 uppercase tracking-wide">Contact Info</h2>
+                     <div class="space-y-4 text-slate-600">
+                        <p>
+                           <span class="block text-xs uppercase tracking-widest text-slate-500 mb-1">Phone</span>
+                           <a href="tel:+10000000000" class="hover:text-navy transition">(805) 402-9050</a>
+                        </p>
+                        <p>
+                           <span class="block text-xs uppercase tracking-widest text-slate-500 mb-1">Email</span>
+                           <a href="mailto:info@libertytechnologyservices.com" class="hover:text-navy transition">info@libertytechnologyservices.com</a>
+                        </p>
+                     </div>
+                  </aside>
+               </div>
+            </div>
+         </section>
+      </main>
+   </body>
+</html>
+

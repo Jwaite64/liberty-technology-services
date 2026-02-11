@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Liberty Technology Services | Home</title>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&display=swap" rel="stylesheet" />
+      <link rel="stylesheet" href="../CSS/Global Styles.css" />
+
+      <style>
+         :root {
+            --liberty-navy: #1a2b4b;
+            --liberty-red: #c53a3a;
+         }
+
+         .bg-navy {
+            background-color: var(--liberty-navy);
+         }
+         .text-navy {
+            color: var(--liberty-navy);
+         }
+
+         .hero-gradient {
+            background: linear-gradient(rgba(26, 43, 75, 0.85), rgba(26, 43, 75, 0.7)), url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80");
+            background-size: cover;
+            background-position: center;
+         }
+
+         .home-hero {
+            position: relative;
+            background: #f1f5f9;
+            overflow: hidden;
+         }
+
+         .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            background-image: linear-gradient(rgba(26, 43, 75, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 43, 75, 0.12) 1px, transparent 1px),
+               radial-gradient(circle at 20% 25%, rgba(26, 43, 75, 0.55) 3px, transparent 4px), radial-gradient(circle at 75% 40%, rgba(26, 43, 75, 0.55) 3px, transparent 4px),
+               radial-gradient(circle at 60% 70%, rgba(26, 43, 75, 0.55) 3px, transparent 4px), radial-gradient(circle at 35% 80%, rgba(26, 43, 75, 0.55) 3px, transparent 4px);
+            background-size: 48px 48px, 48px 48px, auto, auto, auto, auto;
+            pointer-events: none;
+         }
+
+         .trust-pill {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #cbd5e1;
+            background: rgba(255, 255, 255, 0.78);
+            color: #334155;
+            border-radius: 9999px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.5rem 0.85rem;
+         }
+
+         .logo-lockup {
+            font-family: "Montserrat", sans-serif;
+         }
+
+         .logo-liberty {
+            font-weight: 800;
+         }
+
+         .logo-tech {
+            font-weight: 600;
+            letter-spacing: 0.2em;
+         }
+
+         .logo-tagline {
+            color: var(--liberty-red);
+            font-weight: 600;
+            letter-spacing: 0.18em;
+         }
+      </style>
+   </head>
+
+   <body class="bg-slate-50 text-slate-900">
+      <!-- NAV -->
+      <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+               <!-- Logo -->
+               <a href="index.html" class="flex items-center">
+                  <img src="../images/lts_shield_transparent.png" alt="Liberty Technology Services Logo" class="h-20 w-auto" />
+               </a>
+
+               <!-- Nav Links -->
+               <div class="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest">
+                  <a href="index.html" class="text-slate-600 hover:text-navy transition">Home</a>
+                  <a href="about.html" class="text-slate-600 hover:text-navy transition">About</a>
+                  <a href="services.html" class="text-slate-600 hover:text-navy transition">Services</a>
+                  <a href="contact.html" class="text-slate-600 hover:text-navy transition">Contact</a>
+
+                  <!-- CTA -->
+                  <a href="consultation.html" class="px-6 py-3 bg-navy text-white rounded-lg hover:bg-blue-900 transition shadow-md text-[10px]"> Book a Consultation </a>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <main class="page-fade">
+         <section class="home-hero min-h-screen flex items-start justify-center pt-16">
+            <div class="hero-bg-pattern" aria-hidden="true"></div>
+            <div class="max-w-6xl mx-auto px-4 text-center relative z-10 -mt-4">
+               <div class="mb-6">
+                  <img src="../images/LTS_logo_transparent.png" alt="Liberty Technology Services" class="w-full max-w-4xl mx-auto h-auto" />
+               </div>
+
+               <!-- ACTIONS -->
+               <div class="flex flex-col sm:flex-row justify-center gap-6">
+                  <a href="about.html" class="inline-flex items-center justify-center px-10 py-4 border-2 border-navy text-navy rounded-lg font-bold uppercase tracking-widest text-xs transition-transform duration-200 hover:scale-105 hover:shadow-lg"> Learn More </a>
+
+                  <a href="consultation.html" class="px-10 py-4 bg-navy text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-blue-900 transition shadow-md"> Book a Consultation </a>
+               </div>
+            </div>
+         </section>
+      </main>
+   </body>
+</html>

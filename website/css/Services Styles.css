@@ -1,0 +1,33 @@
+.services-hero {
+   background: linear-gradient(rgba(26, 43, 75, 0.9), rgba(26, 43, 75, 0.85)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa");
+   background-size: cover;
+   background-position: center;
+}
+
+.service-card {
+   display: block;
+   background: #ffffff;
+   border: 1px solid #e2e8f0;
+   border-radius: 1rem;
+   padding: 2rem;
+   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.service-card:hover {
+   transform: scale(1.035);
+   box-shadow: 0 20px 42px rgba(15, 23, 42, 0.14);
+   border-color: #cbd5e1;
+}
+
+.service-icon-wrapper {
+   width: 3rem;
+   height: 3rem;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 9999px;
+   background: #e2e8f0;
+   color: #1e293b;
+   margin-bottom: 1rem;
+}

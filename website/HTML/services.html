@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Services | Liberty Technology Services</title>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+      <link rel="stylesheet" href="../CSS/Global Styles.css" />
+      <link rel="stylesheet" href="../CSS/Services Styles.css" />
+
+      <style>
+         :root {
+            --liberty-navy: #1a2b4b;
+            --liberty-blue: #3a5a8c;
+         }
+
+         html {
+            scroll-behavior: smooth;
+         }
+
+         .services-hero {
+            background: linear-gradient(rgba(26, 43, 75, 0.94), rgba(26, 43, 75, 0.88)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80");
+            background-size: cover;
+            background-position: center;
+         }
+      </style>
+   </head>
+
+   <body class="bg-slate-50 text-slate-900">
+      <!-- NAV (from index.html, path-fixed only) -->
+      <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+               <!-- Logo -->
+               <a href="index.html" class="flex items-center">
+                  <img src="../images/LTS_logo_transparent.png" alt="Liberty Technology Services Logo" class="h-20 w-auto" />
+               </a>
+
+               <!-- Nav Links -->
+               <div class="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest">
+                  <a href="index.html" class="text-slate-600 hover:text-navy transition">Home</a>
+                  <a href="about.html" class="text-slate-600 hover:text-navy transition">About</a>
+                  <a href="services.html" class="text-slate-600 hover:text-navy transition">Services</a>
+                  <a href="contact.html" class="text-slate-600 hover:text-navy transition">Contact</a>
+
+                  <!-- CTA -->
+                  <a href="consultation.html" class="px-6 py-3 bg-navy text-white rounded-lg hover:bg-blue-900 transition shadow-md text-[10px]"> Book a Consultation </a>
+               </div>
+            </div>
+         </div>
+      </nav>
+
+      <!-- HERO -->
+      <header class="pt-32 pb-14 services-hero text-white text-center">
+         <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-black mb-5 tracking-tight">
+               Enterprise Level Solutions <br />
+               <span class="text-blue-400">for Your Home.</span>
+            </h1>
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">Professional-grade infrastructure designed for private homes and local offices.</p>
+         </div>
+      </header>
+
+      <!-- SERVICES GRID -->
+      <main class="page-fade">
+         <section class="relative -mt-8 pt-12 pb-20 px-4 bg-white">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+               <a href="#internet_cable_installation" class="service-card group">
+                  <div class="service-icon-wrapper">
+                     <i class="fa-solid fa-ethernet" aria-hidden="true"></i>
+                  </div>
+                  <h3>Internet Cable Installation</h3>
+                  <p class="text-sm text-slate-600 mb-4">Clean Ethernet drops and structured cabling runs built for long-term reliability.</p>
+                  <span class="text-xs font-bold text-blue-600 uppercase tracking-widest group-hover:underline"> Learn More â†’ </span>
+               </a>
+
+               <a href="#networking" class="service-card group">
+                  <div class="service-icon-wrapper">
+                     <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                  </div>
+                  <h3>Advanced Networking</h3>
+                  <p class="text-sm text-slate-600 mb-4">Structured cabling and network optimization for seamless property-wide Wi-Fi.</p>
+                  <span class="text-xs font-bold text-blue-600 uppercase tracking-widest group-hover:underline"> Learn More → </span>
+               </a>
+
+               <a href="#surveillance" class="service-card group">
+                  <div class="service-icon-wrapper">
+                     <i class="fa-solid fa-video" aria-hidden="true"></i>
+                  </div>
+                  <h3>Smart Surveillance</h3>
+                  <p class="text-sm text-slate-600 mb-4">Subscription-free POE camera systems that keep your data private and on-site.</p>
+                  <span class="text-xs font-bold text-blue-600 uppercase tracking-widest group-hover:underline"> Learn More → </span>
+               </a>
+
+               <a href="#automation" class="service-card group">
+                  <div class="service-icon-wrapper">
+                     <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                  </div>
+                  <h3>Local Home Automation</h3>
+                  <p class="text-sm text-slate-600 mb-4">Privacy-first smart home technology that works independently of an internet connection.</p>
+                  <span class="text-xs font-bold text-blue-600 uppercase tracking-widest group-hover:underline"> Learn More → </span>
+               </a>
+            </div>
+         </section>
+
+         <!-- Internet Cable Installation -->
+         <section id="internet_cable_installation" class="py-24 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+               <div>
+                  <h2 class="text-3xl font-black text-[#1a2b4b] mb-6">Internet Cable Installation</h2>
+                  <p class="text-slate-600 leading-relaxed">
+                     From clean wall drops to full structured cabling runs, we install and terminate Ethernet lines with precision and professionalism. Whether you're wiring a new office, upgrading for faster speeds, or
+                     preparing your home for future technology, we ensure your infrastructure is built to last.
+                  </p>
+               </div>
+               <div class="rounded-3xl h-64 md:h-96 overflow-hidden shadow-xl border border-slate-200">
+                  <img src="../images/internet_cable_installation_pic.png" alt="Internet cable installation" class="w-full h-full object-cover" />
+               </div>
+            </div>
+         </section>
+
+         <!-- NETWORKING -->
+         <section id="networking" class="py-24 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+               <div>
+                  <h2 class="text-3xl font-black text-[#1a2b4b] mb-6">Advanced Networking</h2>
+                  <p class="text-slate-600 mb-6 leading-relaxed">
+                     Whether you want to upgrade to enterprise-grade hardware or simply want to maximize the performance of your existing router, we provide the backbone for a stable digital environment.
+                  </p>
+               </div>
+               <div class="rounded-3xl h-64 md:h-96 overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
+                  <img src="../images/advanced_networking_pic.png" alt="Advanced networking installation" class="w-full h-full object-contain" />
+               </div>
+            </div>
+         </section>
+
+         <!-- SURVEILLANCE -->
+         <section id="surveillance" class="py-24 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+               <div class="rounded-3xl h-64 md:h-96 overflow-hidden shadow-xl border border-slate-200">
+                  <img src="../images/smart_survailance_pic.png" alt="Advanced networking installation" class="w-full h-full object-contain" />
+               </div>
+               <div>
+                  <h2 class="text-3xl font-black text-[#1a2b4b] mb-6">Smart Surveillance</h2>
+                  <p class="text-slate-600 leading-relaxed">
+                     Modern security shouldn’t require surrendering your privacy. Your footage stays local, encrypted, and entirely under your control — not stored on a third-party cloud.
+                  </p>
+               </div>
+            </div>
+         </section>
+
+         <!-- AUTOMATION -->
+         <section id="automation" class="py-24 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+               <div>
+                  <h2 class="text-3xl font-black text-[#1a2b4b] mb-6">Local Home Automation</h2>
+                  <p class="text-slate-600 leading-relaxed">
+                     Smart home technology should serve you — not harvest your data. We design fully local automation systems that operate independently of cloud platforms, giving you complete control, enhanced privacy, and
+                     long-term reliability.
+                  </p>
+               </div>
+               <div class="rounded-3xl h-64 md:h-96 overflow-hidden shadow-xl border border-slate-200">
+                  <img src="../images/local_home_automation_pic.png" alt="Advanced networking installation" class="w-full h-full object-contain" />
+               </div>
+            </div>
+         </section>
+      </main>
+
+      <footer class="bg-slate-50 py-12 border-t border-slate-200 text-center">
+         <p class="text-xs text-slate-400 uppercase tracking-widest">© 2026 Liberty Technology Services</p>
+      </footer>
+   </body>
+</html>
