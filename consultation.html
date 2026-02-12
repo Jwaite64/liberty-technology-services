@@ -57,7 +57,7 @@
                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Tell us about your home and your goals so we can design the right solution.</p>
             </div>
 
-            <form action="#" method="post" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-10 space-y-8">
+            <form id="consultation-form" action="https://formspree.io/f/xkovolld" method="post" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-10 space-y-8">
                <section>
                   <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">Contact Info</h2>
                   <div class="grid md:grid-cols-2 gap-5">
@@ -121,6 +121,7 @@
                   <button type="submit" class="inline-flex items-center justify-center px-8 py-3 bg-navy text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-blue-900 transition shadow-md">
                      Request Consultation
                   </button>
+                  <p id="consultation-form-error" class="hidden mt-3 text-sm text-red-600 font-semibold" role="alert"></p>
                </div>
             </form>
          </div>
@@ -130,25 +131,82 @@
          (function () {
             const menuButton = document.getElementById("mobile-menu-button");
             const mobileMenu = document.getElementById("mobile-menu");
-            if (!menuButton || !mobileMenu) return;
-
-            menuButton.addEventListener("click", function () {
-               const isOpen = !mobileMenu.classList.contains("hidden");
-               mobileMenu.classList.toggle("hidden", isOpen);
-               menuButton.setAttribute("aria-expanded", String(!isOpen));
-            });
-
-            mobileMenu.querySelectorAll("a").forEach(function (link) {
-               link.addEventListener("click", function () {
-                  mobileMenu.classList.add("hidden");
-                  menuButton.setAttribute("aria-expanded", "false");
+            if (menuButton && mobileMenu) {
+               menuButton.addEventListener("click", function () {
+                  const isOpen = !mobileMenu.classList.contains("hidden");
+                  mobileMenu.classList.toggle("hidden", isOpen);
+                  menuButton.setAttribute("aria-expanded", String(!isOpen));
                });
-            });
 
-            window.addEventListener("resize", function () {
-               if (window.innerWidth >= 768) {
-                  mobileMenu.classList.add("hidden");
-                  menuButton.setAttribute("aria-expanded", "false");
+               mobileMenu.querySelectorAll("a").forEach(function (link) {
+                  link.addEventListener("click", function () {
+                     mobileMenu.classList.add("hidden");
+                     menuButton.setAttribute("aria-expanded", "false");
+                  });
+               });
+
+               window.addEventListener("resize", function () {
+                  if (window.innerWidth >= 768) {
+                     mobileMenu.classList.add("hidden");
+                     menuButton.setAttribute("aria-expanded", "false");
+                  }
+               });
+            }
+
+            const consultationForm = document.getElementById("consultation-form");
+            const errorMessage = document.getElementById("consultation-form-error");
+            if (!consultationForm) return;
+
+            consultationForm.addEventListener("submit", async function (event) {
+               event.preventDefault();
+
+               const submitButton = consultationForm.querySelector('button[type="submit"]');
+               const originalButtonText = submitButton ? submitButton.textContent : "";
+               if (submitButton) {
+                  submitButton.disabled = true;
+                  submitButton.textContent = "Sending...";
+               }
+               if (errorMessage) {
+                  errorMessage.classList.add("hidden");
+                  errorMessage.textContent = "";
+               }
+
+               try {
+                  const response = await fetch(consultationForm.action, {
+                     method: "POST",
+                     body: new FormData(consultationForm),
+                     headers: {
+                        Accept: "application/json",
+                     },
+                  });
+
+                  if (response.ok) {
+                     window.location.href = "thank_you_consultation.html";
+                     return;
+                  }
+
+                  let message = "Something went wrong. Please try again.";
+                  try {
+                     const data = await response.json();
+                     if (data && data.errors && data.errors.length > 0) {
+                        message = data.errors.map(function (error) { return error.message; }).join(" ");
+                     }
+                  } catch (parseError) {}
+
+                  if (errorMessage) {
+                     errorMessage.textContent = message;
+                     errorMessage.classList.remove("hidden");
+                  }
+               } catch (requestError) {
+                  if (errorMessage) {
+                     errorMessage.textContent = "Network error. Please check your connection and try again.";
+                     errorMessage.classList.remove("hidden");
+                  }
+               } finally {
+                  if (submitButton) {
+                     submitButton.disabled = false;
+                     submitButton.textContent = originalButtonText;
+                  }
                }
             });
          })();

@@ -60,7 +60,7 @@
 
                <div class="grid md:grid-cols-3 gap-8 items-start">
                   <div class="md:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
-                     <form action="https://formspree.io/f/mwvnvddk" method="post" class="space-y-5">
+                     <form id="contact-form" action="https://formspree.io/f/mwvnvddk" method="post" class="space-y-5">
                         <div>
                            <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Name</label>
                            <input id="name" name="name" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
@@ -82,11 +82,10 @@
                            ></textarea>
                         </div>
 
-                        <input type="hidden" id="contact-next-url" name="_next" value="thank_you_contact.html" />
-
                         <button type="submit" class="inline-flex items-center justify-center px-8 py-3 bg-navy text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-blue-900 transition shadow-md">
                            Send Message
                         </button>
+                        <p id="contact-form-error" class="hidden text-sm text-red-600 font-semibold" role="alert"></p>
                      </form>
                   </div>
 
@@ -112,30 +111,82 @@
          (function () {
             const menuButton = document.getElementById("mobile-menu-button");
             const mobileMenu = document.getElementById("mobile-menu");
-            if (!menuButton || !mobileMenu) return;
-
-            menuButton.addEventListener("click", function () {
-               const isOpen = !mobileMenu.classList.contains("hidden");
-               mobileMenu.classList.toggle("hidden", isOpen);
-               menuButton.setAttribute("aria-expanded", String(!isOpen));
-            });
-
-            mobileMenu.querySelectorAll("a").forEach(function (link) {
-               link.addEventListener("click", function () {
-                  mobileMenu.classList.add("hidden");
-                  menuButton.setAttribute("aria-expanded", "false");
+            if (menuButton && mobileMenu) {
+               menuButton.addEventListener("click", function () {
+                  const isOpen = !mobileMenu.classList.contains("hidden");
+                  mobileMenu.classList.toggle("hidden", isOpen);
+                  menuButton.setAttribute("aria-expanded", String(!isOpen));
                });
-            });
 
-            const nextUrl = document.getElementById("contact-next-url");
-            if (nextUrl && /^https?:/.test(window.location.origin)) {
-               nextUrl.value = window.location.origin + "/thank_you_contact.html";
+               mobileMenu.querySelectorAll("a").forEach(function (link) {
+                  link.addEventListener("click", function () {
+                     mobileMenu.classList.add("hidden");
+                     menuButton.setAttribute("aria-expanded", "false");
+                  });
+               });
+
+               window.addEventListener("resize", function () {
+                  if (window.innerWidth >= 768) {
+                     mobileMenu.classList.add("hidden");
+                     menuButton.setAttribute("aria-expanded", "false");
+                  }
+               });
             }
 
-            window.addEventListener("resize", function () {
-               if (window.innerWidth >= 768) {
-                  mobileMenu.classList.add("hidden");
-                  menuButton.setAttribute("aria-expanded", "false");
+            const contactForm = document.getElementById("contact-form");
+            const errorMessage = document.getElementById("contact-form-error");
+            if (!contactForm) return;
+
+            contactForm.addEventListener("submit", async function (event) {
+               event.preventDefault();
+
+               const submitButton = contactForm.querySelector('button[type="submit"]');
+               const originalButtonText = submitButton ? submitButton.textContent : "";
+               if (submitButton) {
+                  submitButton.disabled = true;
+                  submitButton.textContent = "Sending...";
+               }
+               if (errorMessage) {
+                  errorMessage.classList.add("hidden");
+                  errorMessage.textContent = "";
+               }
+
+               try {
+                  const response = await fetch(contactForm.action, {
+                     method: "POST",
+                     body: new FormData(contactForm),
+                     headers: {
+                        Accept: "application/json",
+                     },
+                  });
+
+                  if (response.ok) {
+                     window.location.href = "thank_you_contact.html";
+                     return;
+                  }
+
+                  let message = "Something went wrong. Please try again.";
+                  try {
+                     const data = await response.json();
+                     if (data && data.errors && data.errors.length > 0) {
+                        message = data.errors.map(function (error) { return error.message; }).join(" ");
+                     }
+                  } catch (parseError) {}
+
+                  if (errorMessage) {
+                     errorMessage.textContent = message;
+                     errorMessage.classList.remove("hidden");
+                  }
+               } catch (requestError) {
+                  if (errorMessage) {
+                     errorMessage.textContent = "Network error. Please check your connection and try again.";
+                     errorMessage.classList.remove("hidden");
+                  }
+               } finally {
+                  if (submitButton) {
+                     submitButton.disabled = false;
+                     submitButton.textContent = originalButtonText;
+                  }
                }
             });
          })();
