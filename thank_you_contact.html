@@ -3,16 +3,14 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Contact | Liberty Technology Services</title>
+      <title>Thank You | Liberty Technology Services</title>
 
       <script src="https://cdn.tailwindcss.com"></script>
       <link rel="stylesheet" href="css/Global Styles.css" />
-      <link rel="stylesheet" href="css/Contact Styles.css" />
    </head>
 
    <body class="bg-slate-50 text-slate-900">
-      <!-- NAV (same as index) -->
-            <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+      <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center gap-3">
                <a href="index.html" class="flex items-center shrink-0">
@@ -50,64 +48,23 @@
          </div>
       </nav>
 
-      <main class="page-fade pt-36 pb-24">
-         <section class="px-4">
-            <div class="max-w-5xl mx-auto">
-               <div class="text-center mb-12">
-                  <h1 class="text-4xl md:text-5xl font-black text-navy mb-4">Let's Start a Conversation.</h1>
-                  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Have a question or need more information? Send us a message and we'll get back to you promptly.</p>
+      <main class="page-fade pt-36 pb-24 px-4 min-h-screen flex items-center">
+         <section class="w-full">
+            <div class="max-w-3xl mx-auto bg-white border border-slate-200 rounded-3xl shadow-sm p-8 md:p-12 text-center">
+               <div class="mx-auto mb-6 w-16 h-16 rounded-full bg-blue-100 text-navy flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                     <path d="M20 6 9 17l-5-5"></path>
+                  </svg>
                </div>
-
-               <div class="grid md:grid-cols-3 gap-8 items-start">
-                  <div class="md:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
-                     <form action="https://formspree.io/f/mwvnvddk" method="post" class="space-y-5">
-                        <div>
-                           <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Name</label>
-                           <input id="name" name="name" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
-                        </div>
-
-                        <div>
-                           <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
-                           <input id="email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500" />
-                        </div>
-
-                        <div>
-                           <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
-                           <textarea
-                              id="message"
-                              name="message"
-                              rows="6"
-                              required
-                              class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500"
-                           ></textarea>
-                        </div>
-
-                        <input type="hidden" id="contact-next-url" name="_next" value="thank_you_contact.html" />
-
-                        <button type="submit" class="inline-flex items-center justify-center px-8 py-3 bg-navy text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-blue-900 transition shadow-md">
-                           Send Message
-                        </button>
-                     </form>
-                  </div>
-
-                  <aside class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
-                     <h2 class="text-lg font-black text-navy mb-4 uppercase tracking-wide">Contact Info</h2>
-                     <div class="space-y-4 text-slate-600">
-                        <p>
-                           <span class="block text-xs uppercase tracking-widest text-slate-500 mb-1">Phone</span>
-                           <a href="tel:+10000000000" class="hover:text-navy transition">(805) 402-9050</a>
-                        </p>
-                        <p>
-                           <span class="block text-xs uppercase tracking-widest text-slate-500 mb-1">Email</span>
-                           <a href="mailto:info@libertytechnologyservices.com" class="hover:text-navy transition">info@libertytechnologyservices.com</a>
-                        </p>
-                     </div>
-                  </aside>
+               <h1 class="text-3xl md:text-4xl font-black text-navy mb-4">Thank You for Contacting Us</h1>
+               <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">We received your message and will reach out to you soon.</p>
+               <div class="mt-8">
+                  <a href="index.html" class="inline-flex items-center justify-center px-8 py-3 bg-navy text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-blue-900 transition shadow-md">Back to Home</a>
                </div>
             </div>
          </section>
       </main>
-   
+
       <script>
          (function () {
             const menuButton = document.getElementById("mobile-menu-button");
@@ -127,11 +84,6 @@
                });
             });
 
-            const nextUrl = document.getElementById("contact-next-url");
-            if (nextUrl && /^https?:/.test(window.location.origin)) {
-               nextUrl.value = window.location.origin + "/thank_you_contact.html";
-            }
-
             window.addEventListener("resize", function () {
                if (window.innerWidth >= 768) {
                   mobileMenu.classList.add("hidden");
@@ -142,10 +94,3 @@
       </script>
    </body>
 </html>
-
-
-
-
-
-
-
